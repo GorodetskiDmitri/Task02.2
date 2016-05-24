@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<m:menu xmlns:m="http://by.epam.task02.menu"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://by.epam.task02.menu menu.xsd">
+    
+    <section>
+        <section-name>Холодные закуски</section-name>
+        <dish>
+          	<dish-photo>fishAssorti.jpg</dish-photo>
+           	<dish-name>Ассорти рыбное</dish-name>
+            <dish-description>Слабосоленая форель, семга</dish-description>
+           	<dish-portion>100/20/15</dish-portion>
+       	</dish>
+      	<dish>
+           	<dish-photo>greens.jpg</dish-photo>
+           	<dish-name>Зелень</dish-name>
+           	<dish-description>Кинза, петрушка, лук, укроп, базилик</dish-description>
+           	<dish-portion>30</dish-portion>
+      	</dish>
+    </section>
+    
+    <section>
+        <section-name>Горячие закуски</section-name>
+        <dish>
+          	<dish-photo>lobio.jpg</dish-photo>
+        	<dish-name>Лобио с шампиньонами</dish-name>
+          	<dish-description>Фасоль с шампиньонами и грецким орехом</dish-description>
+          	<dish-portion>150/5</dish-portion>
+          	<dish-price>105</dish-price>
+      	</dish>
+      	<dish>
+          	<dish-photo>ahtamar.jpg</dish-photo>
+           	<dish-name>Ахтамар мясной</dish-name>
+            <dish-description>Колбаса, ветчина, буженина, сыр, запеченые на мангале в лаваше</dish-description>
+           	<dish-portion>1 шт.</dish-portion>
+           	<dish-price>165</dish-price>
+       	</dish>
+    </section>
+    
+    <section>
+        <section-name>Завтраки</section-name>
+        <dish>
+         	<dish-photo>eggs.jpg</dish-photo>
+         	<dish-name>Глазунья</dish-name>
+          	<dish-description>2 яйца (на выбор: ветчина, сыр, помидоры)</dish-description>
+           	<dish-portion>150</dish-portion>
+   		</dish>
+       	<dish>
+           	<dish-photo>omlet.jpg</dish-photo>
+         	<dish-name>Омлет</dish-name>
+           	<dish-portion>100</dish-portion>
+      	</dish>
+    </section>
+    
+</m:menu>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://by.epam.task02.menu"
+        xmlns:tns="http://by.epam.task02.menu">
+
+    <element name="menu">
+        <complexType>
+            <sequence>
+                <element name="section" type="tns:Section" minOccurs="1" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    
+    <complexType name="Section">
+        <sequence>
+            <element name="section-name" type="string" minOccurs="1" maxOccurs="1"/>
+            <element name="dish" type="tns:Dish" minOccurs="1" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Dish">
+        <sequence>
+            <element name="dish-photo" type="string" minOccurs="1" maxOccurs="1"/>
+            <element name="dish-name" type="string" minOccurs="1" maxOccurs="1"/>
+            <element name="dish-description" type="string" minOccurs="0" maxOccurs="1"/>
+            <element name="dish-portion" type="string" minOccurs="1" maxOccurs="1"/>
+            <element name="dish-price" type="positiveInteger" minOccurs="0" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+</schema>
