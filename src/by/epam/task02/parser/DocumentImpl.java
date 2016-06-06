@@ -39,4 +39,25 @@ public class DocumentImpl implements Document {
     public Node getLastChild() {
         return documentElement;
     }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        DocumentImpl documentImp = (DocumentImpl) o;
+
+        return !(documentElement != null ? !documentElement.equals(documentImp.documentElement) : documentImp.documentElement != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return documentElement != null ? documentElement.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+    	return getClass().getName() + "@" + "documentElement : " + documentElement;
+    }
 }

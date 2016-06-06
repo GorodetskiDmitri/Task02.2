@@ -11,13 +11,13 @@ import by.epam.task02.parser.TextImpl;
 
 public class OwnDOMParser {
 
-    private final static char tagStart = '<';
-    private final static char tagEnd = '>';
-    private final static char tagClose = '/';
-    private final static char quotes = '"';
-    private final static char space = ' ';
-    private final static char equal = '=';
-    private final static char question = '?';
+    private final static char TAG_START = '<';
+    private final static char TAG_END = '>';
+    private final static char TAG_CLOSE = '/';
+    private final static char QUOTE = '"';
+    private final static char SPACE = ' ';
+    private final static char EQUAL = '=';
+    private final static char QUESTION = '?';
 
     private FileReader fileReader;
     private char currentSymbol;
@@ -36,11 +36,10 @@ public class OwnDOMParser {
         }
     }
 
-    public DocumentImpl parse(){
+    public DocumentImpl parse() {
         while (readSymbol() != 0) {
             readTag(null);
         }
-        
         return documentImpl;
     }
 
@@ -68,13 +67,13 @@ public class OwnDOMParser {
         StringBuilder tagName = new StringBuilder();
         StringBuilder textBetweenTags = new StringBuilder();
 
-        while (currentSymbol != tagStart && currentSymbol != 0)
+        while (currentSymbol != TAG_START && currentSymbol != 0)
             textBetweenTags.append(readSymbol());
         if (currentSymbol == 0)
             return;
 
-        while (readSymbol() != tagEnd) {
-            if (currentSymbol == tagClose) {
+        while (readSymbol() != TAG_END) {
+            if (currentSymbol == TAG_CLOSE) {
                 if (tagName.length() == 0)
                     closedTag = true;
                 else
@@ -82,7 +81,7 @@ public class OwnDOMParser {
                 break;
             }
           
-            if(currentSymbol == space)
+            if (currentSymbol == SPACE)
                 readAttribute(element);
             else
                 tagName.append(currentSymbol);
@@ -96,7 +95,7 @@ public class OwnDOMParser {
         element.setTagName(tagName.toString());
 
         if (tagName.length() != 0)
-            if (tagName.charAt(0) == question && tagName.charAt(tagName.length() - 1) == question)
+            if (tagName.charAt(0) == QUESTION && tagName.charAt(tagName.length() - 1) == QUESTION)
                 declaration = true;
 
         if (!closedTag && !declaration){
@@ -123,12 +122,12 @@ public class OwnDOMParser {
         StringBuilder attributeName = new StringBuilder();
         StringBuilder attributeValue = new StringBuilder();
 
-        while (readSymbol() != equal)
+        while (readSymbol() != EQUAL)
             attributeName.append(currentSymbol);
 
         readSymbol();
         
-        while (readSymbol() != quotes)
+        while (readSymbol() != QUOTE)
             attributeValue.append(currentSymbol);
 
         attribute.setName(attributeName.toString());
