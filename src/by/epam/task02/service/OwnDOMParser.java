@@ -1,13 +1,13 @@
 package by.epam.task02.service;
 
-import by.epam.task02.domain.AttributeImp;
-import by.epam.task02.domain.DocumentImp;
-import by.epam.task02.domain.ElementImp;
-import by.epam.task02.domain.TextImp;
-
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+
+import by.epam.task02.parser.AttributeImpl;
+import by.epam.task02.parser.DocumentImpl;
+import by.epam.task02.parser.ElementImpl;
+import by.epam.task02.parser.TextImpl;
 
 public class OwnDOMParser {
 
@@ -22,7 +22,7 @@ public class OwnDOMParser {
     private FileReader fileReader;
     private char currentSymbol;
 
-    private DocumentImp documentImp;
+    private DocumentImpl documentImpl;
 
     public OwnDOMParser() {
     }
@@ -36,12 +36,12 @@ public class OwnDOMParser {
         }
     }
 
-    public DocumentImp parse(){
+    public DocumentImpl parse(){
         while (readSymbol() != 0) {
             readTag(null);
         }
         
-        return documentImp;
+        return documentImpl;
     }
 
     private char readSymbol() {
@@ -60,8 +60,8 @@ public class OwnDOMParser {
         return currentSymbol;
     }
 
-    private void readTag(ElementImp parentElement) {
-        ElementImp element = new ElementImp();
+    private void readTag(ElementImpl parentElement) {
+        ElementImpl element = new ElementImpl();
         boolean closedTag = false;
         boolean singleTag = false;
         boolean declaration = false;
@@ -90,7 +90,7 @@ public class OwnDOMParser {
 
         if (parentElement != null) {
             textBetweenTags.deleteCharAt(textBetweenTags.length() - 1);
-            parentElement.setTextContent(new TextImp(textBetweenTags.toString()));
+            parentElement.setTextContent(new TextImpl(textBetweenTags.toString()));
         }
 
         element.setTagName(tagName.toString());
@@ -104,7 +104,7 @@ public class OwnDOMParser {
             if (parentElement != null)
                 parentElement.addChildElement(element);
             else
-                documentImp = new DocumentImp(element);
+                documentImpl = new DocumentImpl(element);
         }
 
         if (!closedTag && !singleTag && !declaration) {
@@ -114,12 +114,12 @@ public class OwnDOMParser {
         else if (!closedTag)
             readTag(parentElement);
        else
-            readTag((ElementImp) parentElement.getParentElement());
+            readTag((ElementImpl) parentElement.getParentElement());
 
     }
 
-    private void readAttribute(ElementImp element) {
-        AttributeImp attribute = new AttributeImp();
+    private void readAttribute(ElementImpl element) {
+        AttributeImpl attribute = new AttributeImpl();
         StringBuilder attributeName = new StringBuilder();
         StringBuilder attributeValue = new StringBuilder();
 

@@ -1,12 +1,12 @@
-package by.epam.task02.domain;
+package by.epam.task02.parser;
 
-public class DocumentImp implements Document {
+public class DocumentImpl implements Document {
     private Element documentElement;
 
-    public DocumentImp(){
+    public DocumentImpl(){
     }
 
-    public DocumentImp(Element documentElement){
+    public DocumentImpl(Element documentElement){
         this.documentElement = documentElement;
     }
 

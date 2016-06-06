@@ -1,14 +1,14 @@
-package by.epam.task02.domain;
+package by.epam.task02.parser;
 
-public class AttributeImp implements Attribute {
+public class AttributeImpl implements Attribute {
     private Element ownerElement;
     private String name;
     private String value;
 
-    public AttributeImp() {
+    public AttributeImpl() {
     }
 
-    public AttributeImp(String name, String value) {
+    public AttributeImpl(String name, String value) {
         this.name = name;
         this.value = value;
     }
@@ -39,33 +39,7 @@ public class AttributeImp implements Attribute {
         return name.equals("ID");
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        AttributeImp that = (AttributeImp) o;
-
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
-        return !(value != null ? !value.equals(that.value) : that.value != null);
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + (value != null ? value.hashCode() : 0);
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "AttributeImp{" +
-                "name='" + name + '\'' +
-                ", value='" + value + '\'' +
-                '}';
-    }
-
+   
     @Override
     public short getNodeType() {
         return 2;
@@ -89,5 +63,30 @@ public class AttributeImp implements Attribute {
     @Override
     public Node getLastChild() {
         return null;
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        AttributeImpl that = (AttributeImpl) o;
+
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        return !(value != null ? !value.equals(that.value) : that.value != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (value != null ? value.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+    	return getClass().getName() + "@" + "name : " + name +
+    			", value : " + value;
     }
 }

@@ -1,21 +1,21 @@
-package by.epam.task02.domain;
+package by.epam.task02.parser;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ElementImp implements Element {
+public class ElementImpl implements Element {
     private String tagName;
     private Element parentElement;
     private List<Element> childElements;
     private List<Attribute> attributes;
     private Text textContent;
 
-    public ElementImp() {
+    public ElementImpl() {
         childElements = new ArrayList<>();
         attributes = new ArrayList<>();
     }
 
-    public ElementImp(String tagName, Text textContent, List<Attribute> attributes, List<Element> childElements, Element parentElement) {
+    public ElementImpl(String tagName, Text textContent, List<Attribute> attributes, List<Element> childElements, Element parentElement) {
         this.tagName = tagName;
         this.textContent = textContent;
         this.attributes = attributes;
@@ -131,38 +131,6 @@ public class ElementImp implements Element {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        ElementImp that = (ElementImp) o;
-
-        if (parentElement != null ? !parentElement.equals(that.parentElement) : that.parentElement != null)
-            return false;
-        if (childElements != null ? !childElements.equals(that.childElements) : that.childElements != null)
-            return false;
-        return !(textContent != null ? !textContent.equals(that.textContent) : that.textContent != null);
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = parentElement != null ? parentElement.hashCode() : 0;
-        result = 31 * result + (childElements != null ? childElements.hashCode() : 0);
-        result = 31 * result + (textContent != null ? textContent.hashCode() : 0);
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "ElementImp{" +
-                "parentElement=" + parentElement +
-                ", childElements=" + childElements +
-                ", textContent=" + textContent +
-                '}';
-    }
-
-    @Override
     public short getNodeType() {
         return 1;
     }
@@ -186,4 +154,36 @@ public class ElementImp implements Element {
     public Node getLastChild() {
         return childElements.get(childElements.size() - 1);
     }
+    
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ElementImpl that = (ElementImpl) o;
+
+        if (parentElement != null ? !parentElement.equals(that.parentElement) : that.parentElement != null)
+            return false;
+        if (childElements != null ? !childElements.equals(that.childElements) : that.childElements != null)
+            return false;
+        return !(textContent != null ? !textContent.equals(that.textContent) : that.textContent != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = parentElement != null ? parentElement.hashCode() : 0;
+        result = 31 * result + (childElements != null ? childElements.hashCode() : 0);
+        result = 31 * result + (textContent != null ? textContent.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+    	return getClass().getName() + "@" + "parentElement : " + parentElement +
+    			", childElements : " + childElements +
+    			", textContent : " + textContent;
+    }
+
 }

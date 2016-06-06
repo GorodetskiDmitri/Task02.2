@@ -2,16 +2,16 @@ package by.epam.task02.main;
 
 import by.epam.task02.entity.Dish;
 import by.epam.task02.entity.Section;
+import by.epam.task02.parser.Document;
+import by.epam.task02.parser.Element;
 import by.epam.task02.entity.Menu;
 import by.epam.task02.service.OwnDOMParser;
-import by.epam.task02.domain.Document;
-import by.epam.task02.domain.Element;
 
 import java.util.List;
 
 public class Main {
 
-    private static final String xmlFileURI = "xml\\menu.xml";
+    private static final String xmlFileURI = "xml/menu.xml";
 
     public static void main(String[] args) {
 

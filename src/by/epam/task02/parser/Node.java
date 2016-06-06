@@ -1,4 +1,4 @@
-package by.epam.task02.domain;
+package by.epam.task02.parser;
 
 public interface Node {
     short getNodeType();

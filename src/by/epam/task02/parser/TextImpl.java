@@ -1,12 +1,12 @@
-package by.epam.task02.domain;
+package by.epam.task02.parser;
 
-public class TextImp implements Text {
+public class TextImpl implements Text {
     private String value;
 
-    public TextImp() {
+    public TextImpl() {
     }
 
-    public TextImp(String value) {
+    public TextImpl(String value) {
         this.value = value;
     }
 
@@ -16,29 +16,6 @@ public class TextImp implements Text {
 
     public void setValue(String value) {
         this.value = value;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        TextImp textImp = (TextImp) o;
-
-        return !(value != null ? !value.equals(textImp.value) : textImp.value != null);
-
-    }
-
-    @Override
-    public int hashCode() {
-        return value != null ? value.hashCode() : 0;
-    }
-
-    @Override
-    public String toString() {
-        return "TextImp{" +
-                "value='" + value + '\'' +
-                '}';
     }
 
     @Override
@@ -75,4 +52,26 @@ public class TextImp implements Text {
     public Node getLastChild() {
         return null;
     }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        TextImpl textImp = (TextImpl) o;
+
+        return !(value != null ? !value.equals(textImp.value) : textImp.value != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return value != null ? value.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+    	return getClass().getName() + "@" + "value : " + value;
+    }
+
 }
